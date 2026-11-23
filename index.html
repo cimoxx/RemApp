@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sk" class="locked">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://accounts.google.com/gsi/client; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://accounts.google.com/gsi/style; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.googleusercontent.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://accounts.google.com/gsi/; frame-src https://accounts.google.com/gsi/; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>RemApp</title>
+  <meta name="description" content="Rýchle zdieľané nákupné zoznamy s pamäťou minulých nákupov.">
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0f1a" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RemApp">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="modulepreload" href="js/store.js">
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div id="auth-screen" class="auth-screen" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="auth-card">
+      <img src="icons/icon-192.png" class="auth-logo" alt="" width="72" height="72">
+      <h1 id="auth-title" class="auth-title">RemApp</h1>
+      <p class="auth-text">Nákupné zoznamy pre nás dvoch. Prihlás sa Google účtom, ktorý má prístup.</p>
+      <div id="auth-google-btn" class="auth-google-btn"></div>
+      <p id="auth-status" class="auth-status" role="status" aria-live="polite"></p>
+      <p class="auth-version" id="app-version"></p>
+    </div>
+  </div>
+
+  <div class="app" id="app">
+    <div id="view" class="view" tabindex="-1"></div>
+  </div>
+
+  <div id="toast-host" class="toast-host" aria-live="polite"></div>
+
+  <div id="update-banner" class="update-banner" role="status" hidden>
+    <span>Je dostupná nová verzia RemApp.</span>
+    <button type="button" class="btn btn-primary btn-sm">Načítať</button>
+  </div>
+
+  <noscript><p class="noscript">RemApp potrebuje zapnutý JavaScript.</p></noscript>
+</body>
+</html>
